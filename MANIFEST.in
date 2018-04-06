@@ -4,9 +4,9 @@ include CHANGES.rst
 include ez_setup.py
 include ah_bootstrap.py
 include setup.cfg
-include pyscint/tests/coveragerc
+include psr_scint/tests/coveragerc
 
-recursive-include pyscint *.pyx *.c *.pxd
+recursive-include psr_scint *.pyx *.c *.pxd
 recursive-include docs *
 recursive-include licenses *
 recursive-include cextern *
