@@ -22,7 +22,7 @@ def calculate_uvw(source, time, s1,s2):
     ------------
     uvw, a list of the u, v and w tracks 
     '''
-    gw    = EarthLocation.from_geocentric(x=np.sqrt(s1.x**2+s1.y**2),y=0,z=s1.z)
+    gw    = EarthLocation(lon=0,lat=0)
     b     = s2-s1
     altaz = source.transform_to(AltAz(obstime=time,location=gw))
     H     = np.arcsin(-np.sin(altaz.az)*np.cos(altaz.alt) / np.cos(source.dec))
