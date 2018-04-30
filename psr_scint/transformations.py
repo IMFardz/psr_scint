@@ -25,7 +25,7 @@ def calculate_uvw(source, time, s1,s2):
     gw    = EarthLocation(lon=0,lat=0)
     b     = s2-s1
     altaz = source.transform_to(AltAz(obstime=time,location=gw))
-    H     = np.arcsin(-np.sin(altaz.az)*np.cos(altaz.alt) / np.cos(source.dec))
+    H     = time.sidereal_time('mean',longitude=gw.lon) - source.ra   
     d     = source.dec
     trans = np.array([[ np.sin(H),           np.cos(H),                   0],
                       [-np.sin(d)*np.cos(H), np.sin(d)*np.sin(H),np.cos(d)],
