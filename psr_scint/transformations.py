@@ -7,7 +7,8 @@ def __init__():
 
 def calculate_uvw(source, time, s1,s2):
     '''
-    Calculates the projected uvw track for the baseline s2-s1
+    Calculates the projected uvw track for the baseline s2-s1.
+    Negative u points West, Negative v points South.
     Parameters:
     -------------
     source: astropy.coordinates.SkyCoord object, 
