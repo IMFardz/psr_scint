@@ -21,7 +21,6 @@ class Waterfall:
         self.polarization = polarization
         self.fullpol      = fullpol
         self.nthreads     = nthreads
-        self.ncorrupt     = self.get_number_corrupt_bins()
 
         self.integrator = self.initialize_pipeline(fh)
 
@@ -32,11 +31,6 @@ class Waterfall:
         # tbin         = (1/128)*u.cycle  
         # then the integrator function should look like
         # integrator  = integration.Integrate(power, tbin, psr_polyco) 
-
-    def get_number_corrupt_bins(self):
-        dt = (4.15*u.ms*(self.dispersion_measure/(u.pc/u.cm**3))
-              *((self.frequency[0]/u.GHz)**(-2)-(self.frequency[-1]/u.GHz)**(-2))).to(u.s)
-        return int(np.ceil(np.abs(dt/self.tbin)))
           
     def initialize_pipeline(self,fh):
         dispersion_measure = dm.DispersionMeasure(self.dispersion_measure)
